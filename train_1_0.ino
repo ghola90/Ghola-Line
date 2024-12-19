@@ -1,6 +1,6 @@
 /*
 
-Ghola Loop Code Version - 1.0 - 12/04/2024 - Make the motor move
+Ghola Loop Code Version - 1.0 - Jan 2025 - Make the motor move
 
 Pin use:
 
@@ -19,10 +19,10 @@ D4 -
 D5 - 
 D6 - 
 D7 - 
-D8 - motor driver pin IN2
-D9 - motor driver pin IN1
-D10- motor driver pin ENT
-D11- 
+D8 - 
+D9 - motor driver pin IN2
+D10- motor driver pin IN1
+D11- motor driver pin ENT
 D12- 
 D13- 
 
@@ -31,9 +31,9 @@ D13-
 #include <LiquidCrystal_I2C.h>       // inlude required LCD library
 LiquidCrystal_I2C lcd(0x27, 16, 2);  // use this for 16x2 LCD modules
 
-int Motor_1 = 8;  // assign motor driver pin IN2 to pin 8
-int Motor_2 = 9;  // assign motor driver pin IN1 to pin 9
-int ENA = 10;     // assign motor driver pin ENA to pin 10
+int Motor_1 = 9;   // assign motor driver pin IN2 to pin 9
+int Motor_2 = 10;  // assign motor driver pin IN1 to pin 10
+int ENA = 11;      // assign motor driver pin ENA to pin 11
 
 
 void setup() {
@@ -65,11 +65,11 @@ void loop() {
   lcd.setCursor(0, 1);       // set cursor to 1st character on 2nd line
   lcd.print("Speeding Up");  // print x on the LCD screen
 
-  analogWrite(ENA, 100);  // set train speed x on 0-255 range
-  digitalWrite(Motor_1, LOW);
+  analogWrite(ENA, 100);        // set train speed x on 0-255 range
+  digitalWrite(Motor_1, LOW);   // the train will move
   digitalWrite(Motor_2, HIGH);  // the train will move
 
-  delay(2000);  // delay for (x)
+  delay(1000);  // delay for (x)
 
   lcd.clear();               // clear LCD screen
   lcd.setCursor(0, 0);       // set cursor to 1st character on 1st line
@@ -78,10 +78,8 @@ void loop() {
   lcd.print("Speeding Up");  // print x on the LCD screen
 
   analogWrite(ENA, 130);  // set train speed x on 0-255 range
-  digitalWrite(Motor_1, LOW);
-  digitalWrite(Motor_2, HIGH);  // the train will move
 
-  delay(2000);  // delay for (x)
+  delay(1000);  // delay for (x)
 
   lcd.clear();               // clear LCD screen
   lcd.setCursor(0, 0);       // set cursor to 1st character on 1st line
@@ -90,8 +88,6 @@ void loop() {
   lcd.print("Full Speed ");  // print x on the LCD screen
 
   analogWrite(ENA, 160);  // set train speed x on 0-255 range
-  digitalWrite(Motor_1, LOW);
-  digitalWrite(Motor_2, HIGH);  // the train will move
 
-  delay(2000);  // delay for (x)
+  delay(1000);  // delay for (x)
 }
